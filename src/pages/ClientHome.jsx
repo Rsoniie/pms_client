@@ -58,7 +58,7 @@ export default function ClientHome() {
 
     try {
       const res = await fetch(
-        `http://127.0.0.1:5600/api/fetchProjectwrtClient?clientId=${clientId}`,
+        `{VITE_BACKEND_BASE_URL}/api/fetchProjectwrtClient?clientId=${clientId}`,
         {
           method: "GET",
           headers: {
@@ -123,7 +123,7 @@ export default function ClientHome() {
       const token = localStorage.getItem("token");
       if (!token) throw new Error("Token not found");
 
-      const res = await fetch("http://127.0.0.1:5600/api/projectRegistration", {
+      const res = await fetch(`${import.meta.env.VITE_BACKEND_BASE_URL}/api/projectRegistration`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

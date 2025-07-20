@@ -17,7 +17,7 @@ export default function LoginPage() {
     setIsLoading(true);
 
     try {
-      const res = await fetch("http://127.0.0.1:5600/api/clientLogin", {
+      const res = await fetch("${import.meta.env.VITE_BACKEND_BASE_URL}/api/clientLogin", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ email, password }),
